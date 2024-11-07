@@ -1,0 +1,26 @@
+<persistence xmlns="https://jakarta.ee/xml/ns/persistence"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence
+        https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
+        version="3.0">
+
+<persistence-unit name="demo">
+
+    <!-- list all the classes that have @Entity annotation -->
+    <class>ee.ut.tvt.hibernateDemo.model.Student</class>
+    <class>ee.ut.tvt.hibernateDemo.model.Course</class>
+    <class>ee.ut.tvt.hibernateDemo.model.Lecturer</class>
+    <class>ee.ut.tvt.hibernateDemo.model.Speciality</class>
+
+    <properties>
+      <!-- configure hibernate to use the HSQL database running on the local machine -->
+      <!-- make sure the HSQL database is started before starting the application -->
+      <property name="jakarta.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
+      <property name="jakarta.persistence.jdbc.url" value="jdbc:hsqldb:hsql://localhost/pos"/>
+
+      <!-- configure hibernate to print out all the SQL commands that it is executing -->
+      <!--<property name="hibernate.show_sql" value="true"/>-->
+
+    </properties>
+  </persistence-unit>
+</persistence>
